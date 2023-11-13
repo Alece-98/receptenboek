@@ -1,4 +1,10 @@
-<?php declare(strict_types=1); 
+<?php declare(strict_types=1);
+	$user = "root";
+	$pass = "spectrum";
+	$dbh = new PDO("mysql:host=localhost;dbname=receptenboek", $user, $pass);
+	$stm = $dbh->query("SELECT * FROM recipes");
+	$rows = $stm->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -14,6 +20,9 @@
     <main>
 		<div class = "recipe">
         	<h1>This is a recipe</h1> 
+			<?php 
+			// echo $stm; 
+			?>
 		</div>
 		<div class = "ingredient-list">
 			<h2>these are the ingredients</h2>
