@@ -1,11 +1,14 @@
-<?php declare(strict_types=1);
+<?php 
+	declare(strict_types=1);
+	echo "Page loaded";
 	$user = "root";
 	$pass = "spectrum";
 	$dbh = new PDO("mysql:host=localhost;dbname=receptenboek", $user, $pass);
 	$stm = $dbh->query("SELECT * FROM recipes");
 	$rows = $stm->fetchAll();
-
+include "overview.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
   <head>
@@ -18,18 +21,7 @@
   </head>
   <body>
     <main>
-		<div class = "recipe">
-        	<h1>This is a recipe</h1> 
-			<?php 
-			// echo $stm; 
-			?>
-		</div>
-		<div class = "ingredient-list">
-			<h2>these are the ingredients</h2>
-		</div>
-		<div class = "method">
-			<h2>this is the preparation method</h2>
-		</div>
+		
 	</main>
   </body>
 </html>
