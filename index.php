@@ -20,8 +20,11 @@ include "overview.php";
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
   <body>
+	<nav> 
+		<a href="/receptenboek/index.php/">back to overview</a>
+	</nav>
     <main>
-		
+		"this is the main page"
 	</main>
   </body>
 </html>
