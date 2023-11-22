@@ -1,35 +1,18 @@
-<?php declare(strict_types=1);
-	$user = "root";
-	$pass = "spectrum";
-	$dbh = new PDO("mysql:host=localhost;dbname=receptenboek", $user, $pass);
-	$stm = $dbh->query("SELECT * FROM recipes");
-	$rows = $stm->fetchAll();
+<?php 
+  declare(strict_types = 1);
+  include ("./header.html");
+  include ("./classes.php");
+  include ("./overview.html");
+  include_once ("./database.php");
+?>
+
+<?php
+// include ("./recipe.html");
+// Include de pagina (recipe.html)
+// Haal 1 recept op uit de database
+// Vervang de placeholders met data die je hebt ontvangen van de database
+// $statement = $dbh->query("SELECT * from 'recipes' WHERE ID = 1;");
+// print_r ($statement);
+// echo "werkt hij nog?"
 
 ?>
-<!DOCTYPE html>
-<html lang="nl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible">
-    <title>Receptenboek</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-		<div class = "recipe">
-        	<h1>This is a recipe</h1> 
-			<?php 
-			// echo $stm; 
-			?>
-		</div>
-		<div class = "ingredient-list">
-			<h2>these are the ingredients</h2>
-		</div>
-		<div class = "method">
-			<h2>this is the preparation method</h2>
-		</div>
-	</main>
-  </body>
-</html>
