@@ -1,19 +1,32 @@
 <?php
-$brownies = new Recipe();
-$brownies->setName($row1[0]);
-$brownies->setIngredients($row1[5]);
-$brownies->setMethod($row1[4]);
+declare(strict_types = 1);
+include ("./header.html");
+include ("./classes.php");
+include_once ("./database.php");
 
-function recipeDisplay(Recipe $brownies)
+
+$ID = $_GET ["id"];
+$statement = $dbh->query("SELECT * FROM `recipes` WHERE ID =  $ID");
+$recipeCall = $statement->fetch();
+$recipe = new Recipe();
+$recipe->setName($recipeCall[0]);
+$recipe->setAdded($recipeCall[1]);
+$recipe->setID($recipeCall[2]);
+$recipe->setDescription($recipeCall[3]);
+$recipe->setMethod($recipeCall[4]);
+$recipe->setIngredients($recipeCall[5]);
+
+
+function recipeDisplay(Recipe $recipe)
 {
   $replace = ["{name}", "{ingredients}", "{preparation}"];
   $values = [
-    $brownies->getName(),
-    $brownies->getIngredients(),
-    $brownies->getMethod(),
+    $recipe->getName(),
+    $recipe->getIngredients(),
+    $recipe->getMethod(),
   ];
   $template = file_get_contents("recipe.html");
   echo str_replace($replace, $values, $template);
 }
-recipeDisplay($brownies);
+recipeDisplay($recipe);
 ?>
