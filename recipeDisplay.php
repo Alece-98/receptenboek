@@ -4,29 +4,11 @@ include ("./header.html");
 include ("./classes.php");
 include_once ("./database.php");
 
-
-$ID = $_GET ["id"];
+//todo dag12 implementeren met die PDO::FETCH_CLASS 
+$ID = (int)$_GET ["id"];
 $statement = $dbh->query("SELECT * FROM `recipes` WHERE ID =  $ID");
-$recipeCall = $statement->fetch();
-$recipe = new Recipe();
-$recipe->setName($recipeCall[0]);
-$recipe->setAdded($recipeCall[1]);
-$recipe->setID($recipeCall[2]);
-$recipe->setDescription($recipeCall[3]);
-$recipe->setMethod($recipeCall[4]);
-$recipe->setIngredients($recipeCall[5]);
+$statement->setFetchMode(PDO::FETCH_CLASS, 'Recipe');
+$recipe = $statement->fetch(); // fetch: 1 item, fetchAll: alle items
 
-
-function recipeDisplay(Recipe $recipe)
-{
-  $replace = ["{name}", "{ingredients}", "{preparation}"];
-  $values = [
-    $recipe->getName(),
-    $recipe->getIngredients(),
-    $recipe->getMethod(),
-  ];
-  $template = file_get_contents("recipe.html");
-  echo str_replace($replace, $values, $template);
-}
 recipeDisplay($recipe);
 ?>

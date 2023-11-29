@@ -2,7 +2,7 @@
 	class Recipe 
 	{
 		private $name;
-		private $ID;
+		private $id;
 		private $added;
 		private $description;
 		private $method;
@@ -14,11 +14,11 @@
 		function getName() {
 			return $this->name;
 		}
-		function setID($ID) {
-			$this->ID = $ID;
+		function setID($id) {
+			$this->id = $id;
 		}
 		function getID() {
-			return $this->ID;
+			return $this->id;
 		}
 		function setAdded($added) {
 			$this->added = $added;
@@ -46,4 +46,27 @@
 		}
 
 	}
+	function recipeDisplay(Recipe $recipe)
+	{
+		$replace = ["{name}", "{ingredients}", "{preparation}"];
+		$values = [
+			$recipe->getName(),
+			$recipe->getIngredients(),
+			$recipe->getMethod(),
+		];
+		$template = file_get_contents("recipe.html");
+		echo str_replace($replace, $values, $template);
+	}
+
+	// function overviewDisplay(Recipe)
+		// $recipes = array()
+		// foreach($recipes as $recipe) {
+		// 	$replace = ["{name}", "{ingredients}", "{preparation}"];
+		// 	$values = [
+		// 		$recipe["name"],
+		// 		$recipe["id"],
+		// 	];
+		// 	$template = file_get_contents("recipe.html");
+		// 	echo str_replace($replace, $values, $template);
+		//   }
 ?>
