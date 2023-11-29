@@ -48,25 +48,14 @@
 	}
 	function recipeDisplay(Recipe $recipe)
 	{
-		$replace = ["{name}", "{ingredients}", "{preparation}"];
+		$replace = ["{name}", "{description}", "{ingredients}", "{preparation}"];
 		$values = [
 			$recipe->getName(),
+			$recipe->getDescription(),
 			$recipe->getIngredients(),
 			$recipe->getMethod(),
 		];
 		$template = file_get_contents("recipe.html");
 		echo str_replace($replace, $values, $template);
 	}
-
-	// function overviewDisplay(Recipe)
-		// $recipes = array()
-		// foreach($recipes as $recipe) {
-		// 	$replace = ["{name}", "{ingredients}", "{preparation}"];
-		// 	$values = [
-		// 		$recipe["name"],
-		// 		$recipe["id"],
-		// 	];
-		// 	$template = file_get_contents("recipe.html");
-		// 	echo str_replace($replace, $values, $template);
-		//   }
 ?>

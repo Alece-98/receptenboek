@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<!-- <nav> 
-		<a href="/receptenboek/index.php/">back to overview</a>
-	</nav> -->
-	<div class = "recipe">
-			<h1>{name}</h1> 
+	<body>
+	<div class="recipe-container">
+		<div class = "recipe-intro">
+			<div class = "recipe-image">
+				"recipe-image"
+			</div>
+			<div class = "recipe-name">
+				<h2>{name}</h2> 
+			</div>
+			<div class = "recipe-description">
+				<p>{description}</p>
+			</div>
 		</div>
-		<div class = "ingredient-list">
-			<h2>{ingredients}</h2>
+		<div class="recipe-content">
+			<div class = "ingredient-list">
+				<ul>{ingredients}</ul>
+			</div>
+			<div class = "recipe-method">
+				<ol>{preparation}</ol>
+			</div>
 		</div>
-		<div class = "method">
-			<h2>{preparation}</h2>
 	</div>
+	</body>
 <html>

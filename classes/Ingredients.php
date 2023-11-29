@@ -1,7 +1,7 @@
 <?php
 	class Ingredients 
 	{
-			private $ID;
+			private $id;
 			private $name;
 			private $amount;
 			private $units;
@@ -13,11 +13,11 @@
 		function getName() {
 			return $this->name;
 		}
-		function setID($ID) {
-			$this->ID = $ID;
+		function setID($id) {
+			$this->id = $id;
 		}
 		function getID() {
-			return $this->ID;
+			return $this->id;
 		}
 		function setAmount($amount) {
 			$this->amount = $amount;
