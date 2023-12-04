@@ -48,12 +48,13 @@
 	}
 	function recipeDisplay(Recipe $recipe)
 	{
-		$replace = ["{name}", "{description}", "{ingredients}", "{preparation}"];
+		$replace = ["{name}", "{description}", "{ingredients}", "{preparation}", "{id}"];
 		$values = [
 			$recipe->getName(),
 			$recipe->getDescription(),
 			$recipe->getIngredients(),
 			$recipe->getMethod(),
+			$recipe->getID(),
 		];
 		$template = file_get_contents("recipe.html");
 		echo str_replace($replace, $values, $template);
